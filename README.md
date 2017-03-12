@@ -1,3 +1,4 @@
-US Congressional District Map
+## US Congressional District Map
 
-![map](dist/output.png)
+### Output (png)
+![output](dist/output.png)
