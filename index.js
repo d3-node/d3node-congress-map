@@ -30,13 +30,11 @@ path {
  stroke-width: 1.5px;
 }`;
 
-var options = {svgStyles: css};
-
-const d3n = new D3Node(options);
+const d3n = new D3Node({svgStyles: css});
 const d3 = d3n.d3;
 
 function findFips(d) {
-  return function (item) {
+  return (item) => {
     return (d.id === item.fips);
   };
 };
@@ -69,7 +67,7 @@ svg.append('g')
     .data(topojson.feature(topo, topo.objects.districts).features)
     .enter().append('path')
     .attr('d', path)
-    .style('fill', function(d){
+    .style('fill', (d) => {
       var race = data.find(findFips(d));
 
       if (race && race.party === 'Republican') {
@@ -80,17 +78,17 @@ svg.append('g')
       return '#ccc';
     })
     .append('title')
-    .text(function(d) { return d.id; });
+    .text((d) => d.id);
 
 svg.append('path')
     .attr('class', 'district-boundaries')
-    .datum(topojson.mesh(topo, topo.objects.districts, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
+    .datum(topojson.mesh(topo, topo.objects.districts, (a, b) => a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0)))
     .attr('d', path);
 
 svg.append('path')
     .attr('class', 'state-boundaries')
-    .datum(topojson.mesh(topo, topo.objects.states, function(a, b) { return a !== b; }))
+    .datum(topojson.mesh(topo, topo.objects.states, (a, b) => a !== b))
     .attr('d', path);
 
 // create output files
-output('dist/map-congress-unopposed', d3n);
+output('dist/output', d3n);
