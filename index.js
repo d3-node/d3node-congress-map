@@ -7,26 +7,14 @@ const output = require('d3node-output');
 
 // derived from http://bl.ocks.org/mbostock/4657115
 const css = `
-path {
- stroke-linejoin: round;
- stroke-linecap: round;
-}
-.districts {
- fill: #bbb;
-}
-.districts :hover {
- fill: orange;
-}
 .district-boundaries {
- pointer-events: none;
  fill: none;
- stroke: #fff;
+ stroke: #aaa;
  stroke-width: .8px;
 }
 .state-boundaries {
- pointer-events: none;
  fill: none;
- stroke: #fff;
+ stroke: #aaa;
  stroke-width: 1.5px;
 }`;
 
@@ -62,7 +50,7 @@ svg.append('clipPath')
 
 svg.append('g')
     .attr('class', 'districts')
-    .attr('clip-path', 'url(#clip-land)')
+  //  .attr('clip-path', 'url(#clip-land)') // causes issue with svg2png
   .selectAll('path')
     .data(topojson.feature(topo, topo.objects.districts).features)
     .enter().append('path')
@@ -71,9 +59,9 @@ svg.append('g')
       var race = data.find(findFips(d));
 
       if (race && race.party === 'Republican') {
-        return 'red';
+        return '#cc203a'; // red
       } else if (race && race.party === 'Democratic') {
-        return 'blue';
+        return '#4286f4'; // blue
       }
       return '#ccc';
     })

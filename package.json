@@ -15,8 +15,8 @@
   "author": "Brad Oyler",
   "license": "MIT",
   "dependencies": {
-    "d3-node": "1.0.0",
-    "d3node-output": "0.0.1",
-    "topojson": "2.2.0"
+    "d3-node": "1.0.1",
+    "d3node-output": "0.0.4",
+    "topojson": "~2.2.0"
   }
 }
