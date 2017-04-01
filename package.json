@@ -7,6 +7,10 @@
     "start": "node ./example",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/d3-node/d3node-congress-map.git"
+  },
   "keywords": [
     "d3",
     "cli",
