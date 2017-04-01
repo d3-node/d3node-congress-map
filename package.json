@@ -1,10 +1,10 @@
 {
   "name": "d3node-congress-map",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "D3-Node congress maps",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./example",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
