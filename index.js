@@ -13,14 +13,9 @@ function congress(svgStyles = defaultStyles) {
   const d3n = new D3Node({ svgStyles });
   const d3 = d3n.d3;
 
-  var width = 960;
-  var height = 500;
-
-  var projection = d3.geoAlbersUsa();
-      var path = d3.geoPath().projection(projection);
-      var svg = d3n.createSVG()
-      .attr('width', width)
-      .attr('height', height);
+  const projection = d3.geoAlbersUsa();
+  const path = d3.geoPath().projection(projection);
+  const svg = d3n.createSVG(960, 500);
 
   svg.selectAll('.region')
       .data(topojson.feature(us, us.objects.congress).features)
